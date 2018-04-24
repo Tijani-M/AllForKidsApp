@@ -13,6 +13,7 @@ import com.codename1.ui.Toolbar;
 import java.io.IOException;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.io.NetworkEvent;
+import com.mycompany.gui.frmAdresseDetail;
 import com.mycompany.gui.frmAffichage;
 
 /**
@@ -28,8 +29,8 @@ public class MyApplication {
         // use two network threads instead of one
         updateNetworkThreadCount(2);
 
-        theme = UIManager.initFirstTheme("/theme");
-
+        theme = UIManager.initFirstTheme("/theme");    
+        
         // Enable Toolbar on all Forms by default
         Toolbar.setGlobalToolbar(true);
 
