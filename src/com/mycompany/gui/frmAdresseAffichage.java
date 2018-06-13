@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author Tijani
  */
-public class frmAffichage extends Form {
+public class frmAdresseAffichage extends Form {
 
     private Label createSeparator() {
         Label sep = new Label(" ");
@@ -27,9 +27,13 @@ public class frmAffichage extends Form {
         return sep;
     }
 
-    public frmAffichage() {
+    public frmAdresseAffichage() {
         this.setTitle("Affichage");
         this.setLayout(BoxLayout.y());
+        this.getToolbar().addCommandToRightBar("+", null, e -> {
+            frmAdresseAjout frmAjout= new frmAdresseAjout();
+            frmAjout.show();
+        });
 
         AdresseUtileService adresseService = new AdresseUtileService();
         ArrayList<AdresseUtile> listAdresses = adresseService.getList2();

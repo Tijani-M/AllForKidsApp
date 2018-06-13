@@ -6,17 +6,14 @@
 package com.mycompany.gui;
 
 import com.codename1.components.SpanLabel;
-import com.codename1.components.ToastBar;
 import com.codename1.googlemaps.MapContainer;
 import com.codename1.maps.Coord;
 import com.codename1.ui.Button;
-import com.codename1.ui.Container;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.Font;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
-import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.plaf.UIManager;
@@ -34,8 +31,7 @@ public class frmAdresseDetail extends Form {
     private Button btnMap;
     private MapContainer ctn;
     private Resources theme;
-    private frmAffichage frmAffichage;
-    //private String[] coo;
+    private frmAdresseAffichage frmAffichage;
 
     public frmAdresseDetail(AdresseUtile adresse) {
 
@@ -43,7 +39,7 @@ public class frmAdresseDetail extends Form {
         this.setLayout(BoxLayout.y());
         this.setTitle(adresse.getNom());
         this.getToolbar().addCommandToRightBar("Back", null, e -> {
-            frmAffichage = new frmAffichage();
+            frmAffichage = new frmAdresseAffichage();
             frmAffichage.show();
         });
         Font myFont = Font.createSystemFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_MEDIUM);

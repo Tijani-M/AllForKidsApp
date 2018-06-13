@@ -5,10 +5,12 @@
  */
 package com.mycompany.service;
 
+import com.codename1.components.ToastBar;
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkManager;
+import com.codename1.ui.FontImage;
 import com.mycompany.entity.AdresseUtile;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,5 +70,29 @@ public class AdresseUtileService {
         });
         NetworkManager.getInstance().addToQueueAndWait(con);
         return listAdresses;
+    }
+    public void add(AdresseUtile adresse) {
+        ConnectionRequest con = new ConnectionRequest();
+        String Url = "http://localhost/AllForKids/web/app_dev.php/adresseutile/json/new?" 
+                + "nom="+ adresse.getNom() 
+                + "&adresse=" + adresse.getAdresse()
+                + "&description=" + adresse.getDescription()
+                + "&tel=" + adresse.getTel()
+                + "&site=" + adresse.getSiteWeb()
+                + "&gps=" + adresse.getGps()
+                ;
+        con.setUrl(Url);
+
+        System.out.println("URL: "+Url);
+
+        
+        con.addResponseListener(e -> {
+            String str = new String(con.getResponseData());
+            System.out.println("Response: " + str);
+            ToastBar.showMessage(str, FontImage.MATERIAL_INFO);
+            
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(con);        
     }
 }
