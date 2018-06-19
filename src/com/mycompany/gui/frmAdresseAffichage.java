@@ -28,7 +28,7 @@ public class frmAdresseAffichage extends Form {
     }
 
     public frmAdresseAffichage() {
-        this.setTitle("Affichage");
+        this.setTitle("Adresses");
         this.setLayout(BoxLayout.y());
         this.getToolbar().addCommandToRightBar("+", null, e -> {
             frmAdresseAjout frmAjout= new frmAdresseAjout();
